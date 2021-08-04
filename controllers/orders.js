@@ -7,6 +7,11 @@ const path = require('path')
 //Mongoose schema
 const Order = require('../models/order')
 
+ordersRouter.get('/', async (req, res) => {
+  const orders = await Order.find({}).limit(0)
+  res.json(orders)
+})
+
 //Populate endpoint !!!!Missing logic for avoiding duplicate data
 ordersRouter.get('/populate/:brand', (req, res) => {
   //Getting the directory based on brand provided in the the API call

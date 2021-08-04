@@ -29,7 +29,7 @@ casesRouter.get('/', (_req, res) => {
           array.push(data.value[i])
         }
 
-        return { name, id, array }
+        return { name, id, array, dates }
       })
       res.json(values)
     })

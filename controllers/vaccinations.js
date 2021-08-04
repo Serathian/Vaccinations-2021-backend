@@ -9,10 +9,13 @@ const Vaccination = require('../models/vaccination')
 const directory = path.join(__dirname, '..', 'data', 'vaccinations.source')
 
 vaccinationsRouter.get('/', async (req, res) => {
-  const vaccinations = await Vaccination.find({}).populate('sourceBottle', {
-    healthCareDistrict: 1,
-    arrived: 1,
-  })
+  const vaccinations = await Vaccination.find({})
+    .limit(0)
+    .populate('sourceBottle', {
+      healthCareDistrict: 1,
+      arrived: 1,
+      injections: 1,
+    })
   res.json(vaccinations)
 })
 
