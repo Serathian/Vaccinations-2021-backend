@@ -33,7 +33,7 @@ app.use(morgan('common'))
 
 //Router initialization
 
-app.use('/api/cases', casesRouter)
+// app.use('/api/cases', casesRouter)
 app.use('/api/vaccinations', vaccinationsRouter)
 app.use('/api/orders', ordersRouter)
 

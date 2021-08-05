@@ -1,3 +1,4 @@
+//!!This endpoint is not currently being used as I had trouble getting the data from the CSV endpoint. JSON was extremely laborious to parse.
 const casesRouter = require('express').Router()
 const axios = require('axios')
 
@@ -9,10 +10,10 @@ casesRouter.get('/test', (_req, res) => {
 casesRouter.get('/', (_req, res) => {
   axios
     .get(
-      'https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json?row=hcdmunicipality2020-445197.445282.445223.444996.445193.445222.&column=dateweek20200101-509096.509115.509159.509087.509065.508494.508853.508675.508844.508834.508921.509080.508857.508850.509252.508767.508673.509267.509062.509092.508704.508529.509173.509324.508924.509281.508745.508737.508657.508782.#'
+      'https://sampo.thl.fi/pivot/prod/en/epirapo/https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json?row=hcdmunicipality2020-445197.445282.445223.444996.445193.445222.&column=dateweek20200101-509130.#/fact_epirapo_covid19case.json?row=hcdmunicipality2020-445197.445282.445223.444996.445193.445222.&column=dateweek20200101-509096.509115.509159.509087.509065.508494.508853.508675.508844.508834.508921.509080.508857.508850.509252.508767.508673.509267.509062.509092.508704.508529.509173.509324.508924.509281.508745.508737.508657.508782.#'
     )
-    .then((res) => res.data.dataset)
-    .then((data) => {
+    .then((res) => console.log(res))
+  /* .then((data) => {
       const indexes = data.dimension.hcdmunicipality2020.category.index
       const labels = data.dimension.hcdmunicipality2020.category.label
       const dates = data.dimension.dateweek20200101
@@ -26,13 +27,14 @@ casesRouter.get('/', (_req, res) => {
         const endIndex = startingIndex + numOfColumns
         let array = []
         for (i = startingIndex; i < endIndex; i++) {
-          array.push(data.value[i])
+          value = +data.value[i]
+          array.push(value)
         }
 
         return { name, id, array, dates }
       })
       res.json(values)
-    })
+    }) */
 })
 
 module.exports = casesRouter
