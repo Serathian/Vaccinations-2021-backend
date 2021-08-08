@@ -40,7 +40,7 @@ ordersRouter.get('/populate/:brand', (req, res) => {
         const order = new Order({
           _id: lineObject['id'],
           orderNumber: lineObject['orderNumber'],
-          responsiblePerson: lineObject['gender'],
+          responsiblePerson: lineObject['responsiblePerson'],
           healthCareDistrict: lineObject['healthCareDistrict'],
           vaccine: lineObject['vaccine'],
           injections: lineObject['injections'],
