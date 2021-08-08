@@ -19,7 +19,15 @@ const orderSchema = new mongoose.Schema(
   { _id: false }
 )
 
+orderSchema.virtual('used', {
+  ref: 'Vaccination',
+  localField: '_id',
+  foreignField: 'sourceBottle',
+  // justOne: true,
+})
+
 orderSchema.set('toJSON', {
+  virtuals: true,
   transform: (_document, returnedObject) => {
     returnedObject.id = returnedObject._id
     delete returnedObject._id
