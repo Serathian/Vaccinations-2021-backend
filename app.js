@@ -11,6 +11,7 @@ const cors = require('cors')
 const casesRouter = require('./controllers/cases')
 const vaccinationsRouter = require('./controllers/vaccinations')
 const ordersRouter = require('./controllers/orders')
+const dataRouter = require('./controllers/data')
 
 //APP INITIALIZATION
 const app = express()
@@ -33,7 +34,7 @@ app.use(morgan('common'))
 
 //Router initialization
 
-// app.use('/api/cases', casesRouter)
+app.use('/api/data', dataRouter)
 app.use('/api/vaccinations', vaccinationsRouter)
 app.use('/api/orders', ordersRouter)
 
