@@ -5,9 +5,6 @@ const mongoose = require('mongoose')
 
 const Vaccination = require('../models/vaccination')
 
-//`${__dirname}/data/vaccinations.source`
-const directory = path.join(__dirname, '..', 'data', 'vaccinations.source')
-
 vaccinationsRouter.get('/', async (req, res) => {
   const vaccinations = await Vaccination.find({})
     .limit(0)
@@ -20,6 +17,7 @@ vaccinationsRouter.get('/', async (req, res) => {
 })
 
 //Populate endpoint, !!!missing logic for avoiding duplicate data
+const directory = path.join(__dirname, '..', 'data', 'vaccinations.source')
 vaccinationsRouter.get('/populate', (req, res) => {
   lineReader.eachLine(
     directory,
