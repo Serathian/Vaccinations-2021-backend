@@ -1,11 +1,12 @@
 {
   "name": "vaccine-2021",
   "version": "1.0.0",
-  "description": "vaccine exersise 2021",
+  "description": "vaccine exercise 2021",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
   },
   "author": "Jake Reddy",
   "license": "ISC",
@@ -19,5 +20,19 @@
     "mongoose": "^5.13.4",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^27.0.6",
+    "supertest": "^6.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
