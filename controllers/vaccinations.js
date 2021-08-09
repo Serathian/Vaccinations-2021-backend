@@ -1,8 +1,6 @@
 const vaccinationsRouter = require('express').Router()
 const lineReader = require('line-reader')
 const path = require('path')
-const mongoose = require('mongoose')
-
 const Vaccination = require('../models/vaccination')
 
 vaccinationsRouter.get('/', async (req, res) => {
@@ -16,7 +14,7 @@ vaccinationsRouter.get('/', async (req, res) => {
   res.json(vaccinations)
 })
 
-//Populate endpoint, !!!missing logic for avoiding duplicate data
+// Populate endpoint, !!!missing logic for avoiding duplicate data
 const directory = path.join(__dirname, '..', 'data', 'vaccinations.source')
 vaccinationsRouter.get('/populate', (req, res) => {
   lineReader.eachLine(
