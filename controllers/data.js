@@ -27,10 +27,15 @@ dataRouter.get('/:date', async (req, res) => {
   )
 
   const groupedOrders = _.groupBy(orderResult, 'vaccine')
+  const antiqua = groupedOrders.Antiqua ? groupedOrders.Antiqua.length : 0
+  const solarBuddhica = groupedOrders.SolarBuddhica
+    ? groupedOrders.SolarBuddhica.length
+    : 0
+  const zerpfy = groupedOrders.Zerpfy ? groupedOrders.Zerpfy.length : 0
   const vaccinationsOrdered = {
-    Antiqua: groupedOrders.Antiqua.length,
-    SolarBuddhica: groupedOrders.SolarBuddhica.length,
-    Zerpfy: groupedOrders.Zerpfy.length,
+    Antiqua: antiqua,
+    SolarBuddhica: solarBuddhica,
+    Zerpfy: zerpfy,
   }
 
   const ordersMade = orderResult.length
