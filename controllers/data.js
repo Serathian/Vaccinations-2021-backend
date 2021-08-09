@@ -9,15 +9,10 @@ dataRouter.get('/:date', async (req, res) => {
   const [year, month, day] = date.split('-')
   const nextDay = +day + 1
 
+  //This is the query date at 00:00
   const dateStart = new Date(`${year}-${month}-${day}`)
+  // This is the next day at 00:00. This allows me to get all the data from the day before.
   const dateEnd = new Date(`${year}-${month}-${nextDay.toString()}`)
-
-  //todo: start testing.
-
-  //!! am i going to use this?
-  //   const vaccineResult = await Vaccination.find({
-  //     vaccinationDate: { $lte: date },
-  //   })
 
   const orderResult = await Order.find({ arrived: { $lte: dateEnd } }).populate(
     {
