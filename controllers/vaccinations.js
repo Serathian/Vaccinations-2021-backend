@@ -2,6 +2,7 @@ const vaccinationsRouter = require('express').Router()
 const lineReader = require('line-reader')
 const path = require('path')
 const Vaccination = require('../models/vaccination')
+const { toVaccination } = require('../utils/controller-helpers')
 
 vaccinationsRouter.get('/', async (req, res) => {
   const vaccinations = await Vaccination.find({})
@@ -16,29 +17,28 @@ vaccinationsRouter.get('/', async (req, res) => {
 
 // Populate endpoint, !!!missing logic for avoiding duplicate data
 const directory = path.join(__dirname, '..', 'data', 'vaccinations.source')
-vaccinationsRouter.get('/populate', (req, res) => {
+vaccinationsRouter.get('/populate', async (req, res) => {
+  let array = []
+
   lineReader.eachLine(
     directory,
-    async (line) => {
+    (line) => {
       const lineObject = JSON.parse(line)
 
-      const vaccination = new Vaccination({
-        _id: lineObject['vaccination-id'],
-        sourceBottle: lineObject['sourceBottle'],
-        gender: lineObject['gender'],
-        vaccinationDate: lineObject['vaccinationDate'],
-      })
+      const vaccination = toVaccination(lineObject)
+
+      array.push(vaccination)
+    },
+    async (err) => {
+      console.log(err)
+      console.log("I'm done!!")
+
       try {
-        const savedVaccination = await vaccination.save()
-        console.log('Success!', savedVaccination)
+        const savedVaccinations = await Vaccination.insertMany(array)
+        res.send(`Done! and send ${savedVaccinations.length}`)
       } catch (err) {
         console.log(err)
       }
-    },
-    (err) => {
-      if (err) throw err
-      console.log("I'm done!!")
-      res.send(`Done! and populated --Vaccination-- entries`)
     }
   )
 })
