@@ -1,3 +1,7 @@
+const path = require('path')
+const Order = require('../models/order')
+const Vaccination = require('../models/vaccination')
+
 const getDirectory = (brand) => {
   switch (brand) {
     case 'Antiqua':
@@ -7,7 +11,7 @@ const getDirectory = (brand) => {
     case 'Zerpfy':
       return path.join(__dirname, '..', 'data', 'Zerpfy.source')
     default:
-      return null
+      return path
   }
 }
 

@@ -37,7 +37,7 @@ ordersRouter.get('/populate/:brand', async (req, res) => {
 
         try {
           const savedOrders = await Order.insertMany(array)
-          res.send(`Done! and send ${savedOrders.length}`)
+          res.send(`Done! and sent ${savedOrders.length}`)
         } catch (err) {
           console.log(err)
         }
