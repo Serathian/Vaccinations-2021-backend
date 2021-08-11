@@ -14,14 +14,15 @@ the dataset of vaccinations.
 
 ### Things to note:
 
-- 'Graph' and 'Data processed in browser' both get their data pools from a axios api call that is cached in the browsers local storage.
-  I done this out of curiosity to see the loading times of an API call compared to local data aggregation.
+- the 'Graph' and 'Data processed in browser' sections both get their data from a cached in the browsers local storage.
+  whereas 'Data processed server side' makes a new call when the date is updated.
+  _I done this out of curiosity to see the loading times of an API call compared to local data aggregation._
 - Data processed in 'Browser' and 'Server Side' show different values, This is interesting little 'bug' due to the way
-  I coded date parsing on the server side differently to the frontend. Server side returns data INCLUDING the requested date.
-  Browser data filters UPTO the requested date, there is a 24h difference. I left it in as a little reminder of
+  I coded date parsing on the server side differently to the frontend. Server side returns data **INCLUDING** the requested date.
+  Browser data filters **UPTO** the requested date, there is a 24h difference. I left it in as a little reminder of
   how difficult it is to work with time Date objects.
-- Cases dataset comes for a gist I complied from data obtained from the thl api. I tried to implement
-  a endpoint so I could dynamically get the data based on the date picked by the user, but I couldn't decipher the api documentations for date queries.
+- Cases dataset comes form a gist I complied from data obtained from the thl api. I tried to implement
+  a endpoint so I could dynamically get the data based on the date picked by the user, but I couldn't decipher the api documentations for date queries format (It seems quite cryptic).
 
 ### Challenges I faced:
 
