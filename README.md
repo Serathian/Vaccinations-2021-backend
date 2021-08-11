@@ -2,10 +2,10 @@
 
 ## By Jake Reddy
 
-#### This is a fullstack application using Nodejs, React and Mongodb. The database is populated with dataset supplied by Solita as part of the assignment.
+#### This is a fullstack application using Nodejs, React and Mongodb. The database is populated with dataset supplied by [Solita](https://github.com/solita/vaccine-exercise-2021) as part of the assignment.
 
 From the start I wanted to set myself apart from the rest of the applicants by hopefully doing something different,
-I jumped at the chance to refresh my memory of D3 skills. I thought it would be interesting to overlay the Finnish COVID API over
+I jumped at the chance to refresh my memory of D3 skills. I thought it would be interesting to overlay the [Finnish COVID API](https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json) over
 the dataset of vaccinations.
 
 **Backend - Nodejs:** Uses Express and Mongoose framework to do all the heavy lifting and Jest, Supertest and Mongo-memory-server for testing.
@@ -39,7 +39,11 @@ the dataset of vaccinations.
 - add styling with styled-components (My personal preference) or css modules
   How to Install and Run the tests;
 
-The fullstack app is running on:
+The fullstack app is running on [Heroku](https://afternoon-spire-41729.herokuapp.com/)
+
+#### To download and test the backend;
+
+**.ENV file not included in the git. Only npm test will work. See [Heroku](https://afternoon-spire-41729.herokuapp.com/) for working app**
 
 npm install
 npm test OR run test script
