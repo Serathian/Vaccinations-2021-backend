@@ -16,7 +16,7 @@ the dataset of vaccinations.
 
 - the 'Graph' and 'Data processed in browser' sections both get their data from a cached in the browsers local storage.
   whereas 'Data processed server side' makes a new call when the date is updated.
-  _I done this out of curiosity to see the loading times of an API call compared to local data aggregation._
+  _I did this out of curiosity to see the loading times of an API call compared to local data aggregation._
 - Data processed in 'Browser' and 'Server Side' show different values, This is interesting little 'bug' due to the way
   I coded date parsing on the server side differently to the frontend. Server side returns data **INCLUDING** the requested date.
   Browser data filters **UPTO** the requested date, there is a 24h difference. I left it in as a little reminder of
@@ -27,6 +27,8 @@ the dataset of vaccinations.
 ### Challenges I faced:
 
 - Working with javascript Date objects was surprisingly frustrating.
+- Parsing the .source files into use-able objects.
+- Working with any new dataset is a fun learning experience :)
 
 ### Things I'd like to improve on:
 
