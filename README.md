@@ -46,4 +46,4 @@ The fullstack app is running on [Heroku](https://afternoon-spire-41729.herokuapp
 **.ENV file not included in the git. Only npm test will work. See [Heroku](https://afternoon-spire-41729.herokuapp.com/) for working app**
 
 > First run 'npm install' .\
-> Then run npm test OR run test script
+> Then run 'npm test'
