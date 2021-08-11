@@ -15,7 +15,6 @@ const dataRouter = require('./controllers/data')
 
 //APP INITIALIZATION
 const app = express()
-app.use(express.static('build'))
 //Mongoose connecting
 logger.info('Connecting to: ', config.MONGODB_URI)
 mongoose
@@ -34,6 +33,7 @@ mongoose
 app.use(cors())
 app.use(express.json())
 app.use(morgan('common'))
+app.use(express.static('build'))
 
 //Router initialization
 app.use('/api/data', dataRouter)

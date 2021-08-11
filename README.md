@@ -39,5 +39,7 @@ the dataset of vaccinations.
 - add styling with styled-components (My personal preference) or css modules
   How to Install and Run the tests;
 
+The fullstack app is running on:
+
 npm install
 npm test OR run test script
